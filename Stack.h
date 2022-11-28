@@ -2,21 +2,14 @@ template<class T>
 class Stack
 {
 public:
-    Stack() {}
-
-    Stack(int size)
+    void push(T e)
     {
-        array = new T(size);
+        array[size++] = e;
     }
 
     void pop()
     {
         size--;
-    }
-
-    void push(T e)
-    {
-        array[size++] = e;
     }
 
     T top()
@@ -29,6 +22,16 @@ public:
         if (size <= 0)
             return true;
         return false;
+    }
+
+    int getSize()
+    {
+        return size;
+    }
+
+    void clear()
+    {
+        size = 0;
     }
 
 private:

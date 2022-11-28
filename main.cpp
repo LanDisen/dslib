@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Stack.h"
+#include "Queue.h"
 using namespace std;
 
 void testStack()
@@ -18,8 +19,26 @@ void testStack()
     cout << s.isEmpty() << endl;
 }
 
+void testQueue()
+{
+    Queue<int> q;
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    cout << q.front() << endl;
+    cout << q.rear() << endl;
+    q.dequeue();
+    cout << q.front() << endl;
+    q.enqueue(40);
+    cout << q.rear() << endl;
+    cout << q.isEmpty() << endl;
+    q.clear();
+    cout << q.isEmpty() << endl;
+}
+
 int main() 
 {
-    testStack();
+    //testStack();
+    testQueue();
     return 0;
 }
