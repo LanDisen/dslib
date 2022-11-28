@@ -5,6 +5,7 @@
 - [ ] Vector
 - [ ] Stack
 - [ ] Queue
+- [ ] LoopQueue
 - [ ] LinkedList
 - [ ] BST(using int type but not template)
 - [ ] HashMap
