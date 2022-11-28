@@ -9,3 +9,4 @@
 - [ ] LinkedList
 - [ ] BST(using int type but not template)
 - [ ] HashMap
+- [ ] algorithm
