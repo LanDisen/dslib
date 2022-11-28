@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Stack.h"
 #include "Queue.h"
+#include "BST.h"
 using namespace std;
 
 void testStack()
@@ -36,9 +37,25 @@ void testQueue()
     cout << q.isEmpty() << endl;
 }
 
+void testBST()
+{
+    BST tree;
+    tree.insert(5);
+    tree.insert(2);
+    tree.insert(8);
+    tree.insert(3);
+    tree.insert(9);
+    tree.insert(10);
+    tree.insert(6);
+    tree.preorder();
+    tree.inorder();
+    tree.postorder();
+}
+
 int main() 
 {
     //testStack();
-    testQueue();
+    //testQueue();
+    testBST();
     return 0;
 }
