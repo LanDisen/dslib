@@ -6,6 +6,8 @@ public:
     Node() = default;
     Node(int val) {this->val = val;}
     ~Node();
+    bool hasChild();
+    int getChildrenNum();
 
 public:
     int val;
@@ -20,10 +22,16 @@ public:
     ~BST();
     bool insert(int val);
     Node *insertHelp(Node *subroot, int val);
-    bool remove(const int& val);
+    bool remove(int val);
     Node *removeHelp(Node *subroot, int val);
     bool find(int val);
+    int findMax();
+    int findMaxHelp(Node *subroot);
+    int findMin();
+    int findMinHelp(Node *subroot);
+    bool isEmpty();
     int getHeight();
+    int getHeightHelp(Node *subroot);
     void preorder();
     void preorderHelp(Node *subroot);
     void inorder();
@@ -47,6 +55,22 @@ Node::~Node()
         delete left;
         right = nullptr;
     }
+}
+
+bool Node::hasChild()
+{
+    if (left != nullptr || right != nullptr)
+        return true;
+    return false;
+}
+
+int Node::getChildrenNum()
+{
+    if (left == nullptr && right == nullptr)
+        return 0;
+    if (left != nullptr && right != nullptr)
+        return 2;
+    return 1;
 }
 
 BST::~BST()
@@ -82,6 +106,89 @@ Node *BST::insertHelp(Node *subroot, int val)
     if (val > subroot->val)
         subroot->right = insertHelp(subroot->right, val);
     return subroot;
+}
+
+bool BST::remove(int val)
+{
+
+    return false;
+}
+
+Node *BST::removeHelp(Node *subroot, int val)
+{
+    if (root == nullptr || subroot == nullptr)
+        return nullptr;
+    if (val < subroot->val)
+        subroot->left = removeHelp(subroot->left, val);
+    if (val > subroot->val)
+        subroot->right = removeHelp(subroot->right, val);
+    // val == subroot->val
+    if (subroot->getChildrenNum() != 1)
+    {
+
+    }
+    return subroot;
+}
+
+bool BST::find(int val)
+{
+    Node *temp = root;
+    while (temp != nullptr)
+    {
+        if (val == temp->val)
+            return true;
+        if (val < temp->val)
+            temp = temp->left;
+        else if (val > temp->val)
+            temp = temp->right;
+    }
+    return false;
+}
+
+int BST::findMax()
+{
+    return findMaxHelp(root);
+}
+
+int BST::findMaxHelp(Node *subroot)
+{
+    while (subroot->right != nullptr)
+        subroot = subroot->right;
+    return subroot->val;
+}
+
+int BST::findMin()
+{
+    return findMinHelp(root);
+}
+
+int BST::findMinHelp(Node *subroot)
+{
+    while (subroot->left != nullptr)
+        subroot = subroot->left;
+    return subroot->val;
+}
+
+bool BST::isEmpty()
+{
+    if (root == nullptr)
+        return true;
+    return false;
+}
+
+int BST::getHeight()
+{
+    return getHeightHelp(root);
+}
+
+int BST::getHeightHelp(Node *subroot)
+{
+    if (subroot == nullptr)
+        return 0;
+    int leftHeight = getHeightHelp(subroot->left);
+    int rightHeight = getHeightHelp(subroot->right);
+    int height = leftHeight > rightHeight ? leftHeight + 1: rightHeight + 1;
+    return height;
 }
 
 void BST::preorder()

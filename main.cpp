@@ -4,6 +4,18 @@
 #include "BST.h"
 using namespace std;
 
+template<typename T>
+void print(T t)
+{
+    cout << t;
+}
+
+template<typename T>
+void println(T t)
+{
+    cout << t << endl;
+}
+
 void testStack()
 {
     Stack<int> s;
@@ -50,6 +62,10 @@ void testBST()
     tree.preorder();
     tree.inorder();
     tree.postorder();
+    println(tree.findMax());
+    println(tree.findMin());
+    println(tree.find(6));
+    println(tree.find(20));
 }
 
 int main() 
