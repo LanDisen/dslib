@@ -9,6 +9,8 @@
 - [x] Queue
 - [ ] Array
 - [ ] BST(using int type but not template)
+- [ ] MaxHeap
+- [ ] MinHeap
 - [ ] TwoThreeTree
 - [ ] BPlusTree
 - [ ] HashMap
