@@ -4,13 +4,14 @@ class Node
 {
 public:
     Node() = default;
-    Node(int val) {this->val = val;}
+    Node(int data) {this->data = data;}
     ~Node();
+    bool isLeaf();
     bool hasChild();
     int getChildrenNum();
 
 public:
-    int val;
+    int data;
     Node *left = nullptr;
     Node *right = nullptr;
 };
@@ -20,15 +21,16 @@ class BST
 public:
     BST() = default;
     ~BST();
-    bool insert(int val);
-    Node *insertHelp(Node *subroot, int val);
-    bool remove(int val);
-    Node *removeHelp(Node *subroot, int val);
-    bool find(int val);
+    bool insert(int data);
+    Node *insertHelp(Node *subroot, int data);
+    bool remove(int data);
+    Node *removeHelp(Node *subroot, int data);
+    Node *find(int data);
+    bool isExist(int data);
     int findMax();
-    int findMaxHelp(Node *subroot);
+    Node *findMaxHelp(Node *subroot);
     int findMin();
-    int findMinHelp(Node *subroot);
+    Node *findMinHelp(Node *subroot);
     bool isEmpty();
     int getHeight();
     int getHeightHelp(Node *subroot);
@@ -57,6 +59,13 @@ Node::~Node()
     }
 }
 
+bool Node::isLeaf()
+{
+    if (left == nullptr && right == nullptr)
+        return true;
+    return false;
+}
+
 bool Node::hasChild()
 {
     if (left != nullptr || right != nullptr)
@@ -82,64 +91,98 @@ BST::~BST()
     }
 }
 
-bool BST::insert(int val)
+bool BST::insert(int data)
 {
-    if (insertHelp(root, val) == nullptr)
+    if (insertHelp(root, data) == nullptr)
         return false;
     return true;
 }
 
-Node *BST::insertHelp(Node *subroot, int val)
+Node *BST::insertHelp(Node *subroot, int data)
 {
     if (root == nullptr)
     {
-        root = new Node(val);
+        root = new Node(data);
         return root;
     }
     if (subroot == nullptr)
     {
-        subroot = new Node(val);
+        subroot = new Node(data);
         return subroot;
     }
-    if (val < subroot->val)
-        subroot->left = insertHelp(subroot->left, val);
-    if (val > subroot->val)
-        subroot->right = insertHelp(subroot->right, val);
+    if (data < subroot->data)
+        subroot->left = insertHelp(subroot->left, data);
+    if (data > subroot->data)
+        subroot->right = insertHelp(subroot->right, data);
     return subroot;
 }
 
-bool BST::remove(int val)
+bool BST::remove(int data)
 {
-
-    return false;
+    if (!isExist(data))
+        return false;
+    removeHelp(root, data);
+    return true;
 }
 
-Node *BST::removeHelp(Node *subroot, int val)
+Node *BST::removeHelp(Node *subroot, int data)
 {
     if (root == nullptr || subroot == nullptr)
         return nullptr;
-    if (val < subroot->val)
-        subroot->left = removeHelp(subroot->left, val);
-    if (val > subroot->val)
-        subroot->right = removeHelp(subroot->right, val);
-    // val == subroot->val
-    if (subroot->getChildrenNum() != 1)
+    if (data < subroot->data)
+        subroot->left = removeHelp(subroot->left, data);
+    else if (data > subroot->data)
+        subroot->right = removeHelp(subroot->right, data);
+    // data == subroot->data
+    else 
     {
-
+        Node *temp;
+        if (subroot->left!=nullptr && subroot->right!=nullptr)
+        {
+            temp = findMinHelp(subroot->right);
+            subroot->data = temp->data;
+            subroot->right = removeHelp(subroot->right, subroot->data);
+        }
+        else
+        {
+            temp = subroot;
+            if (subroot->right == nullptr)
+                subroot = subroot->left;
+            else if (subroot->left == nullptr)
+                subroot = subroot->right;
+            delete temp;
+            temp = nullptr;
+        }
+        return subroot;
     }
     return subroot;
 }
 
-bool BST::find(int val)
+Node *BST::find(int data)
 {
     Node *temp = root;
     while (temp != nullptr)
     {
-        if (val == temp->val)
-            return true;
-        if (val < temp->val)
+        if (data == temp->data)
+            return temp;
+        if (data < temp->data)
             temp = temp->left;
-        else if (val > temp->val)
+        else if (data > temp->data)
+            temp = temp->right;
+    }
+    return nullptr;
+}
+
+bool BST::isExist(int data)
+{
+    Node *temp = root;
+    while (temp != nullptr)
+    {
+        if (data == temp->data)
+            return true;
+        if (data < temp->data)
+            temp = temp->left;
+        else if (data > temp->data)
             temp = temp->right;
     }
     return false;
@@ -147,26 +190,30 @@ bool BST::find(int val)
 
 int BST::findMax()
 {
-    return findMaxHelp(root);
+    return findMaxHelp(root)->data;
 }
 
-int BST::findMaxHelp(Node *subroot)
+Node *BST::findMaxHelp(Node *subroot)
 {
+    if (subroot->isLeaf())
+        return subroot;
     while (subroot->right != nullptr)
         subroot = subroot->right;
-    return subroot->val;
+    return subroot;
 }
 
 int BST::findMin()
 {
-    return findMinHelp(root);
+    return findMinHelp(root)->data;
 }
 
-int BST::findMinHelp(Node *subroot)
+Node *BST::findMinHelp(Node *subroot)
 {
+    if (subroot->isLeaf())
+        return subroot;
     while (subroot->left != nullptr)
         subroot = subroot->left;
-    return subroot->val;
+    return subroot;
 }
 
 bool BST::isEmpty()
@@ -201,7 +248,7 @@ void BST::preorderHelp(Node *subroot)
 {
     if (subroot == nullptr)
         return;
-    std::cout << subroot->val << " ";
+    std::cout << subroot->data << " ";
     preorderHelp(subroot->left);
     preorderHelp(subroot->right);
 }
@@ -217,7 +264,7 @@ void BST::inorderHelp(Node *subroot)
     if (subroot == nullptr)
         return;
     inorderHelp(subroot->left);
-    std::cout << subroot->val << " ";
+    std::cout << subroot->data << " ";
     inorderHelp(subroot->right);
 }
 
@@ -233,5 +280,5 @@ void BST::postorderHelp(Node *subroot)
         return;
     postorderHelp(subroot->left);
     postorderHelp(subroot->right);
-    std::cout << subroot->val << " ";
+    std::cout << subroot->data << " ";
 }

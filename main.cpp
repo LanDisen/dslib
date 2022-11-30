@@ -60,12 +60,14 @@ void testBST()
     tree.insert(10);
     tree.insert(6);
     tree.preorder();
-    tree.inorder();
-    tree.postorder();
-    println(tree.findMax());
-    println(tree.findMin());
-    println(tree.find(6));
-    println(tree.find(20));
+    // tree.inorder();
+    // tree.postorder();
+    tree.remove(2);
+    tree.preorder();
+    tree.remove(5);
+    tree.preorder();
+    tree.remove(8);
+    tree.preorder();
 }
 
 int main() 
