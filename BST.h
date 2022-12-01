@@ -1,3 +1,5 @@
+#ifndef _BST_H_
+#define _BST_H_
 #include <iostream>
 
 class Node
@@ -282,3 +284,5 @@ void BST::postorderHelp(Node *subroot)
     postorderHelp(subroot->right);
     std::cout << subroot->data << " ";
 }
+
+#endif
