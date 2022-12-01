@@ -26,7 +26,7 @@ public:
     bool remove(int data);
     Node *removeHelp(Node *subroot, int data);
     Node *find(int data);
-    bool isExist(int data);
+    bool contains(int data);
     int findMax();
     Node *findMaxHelp(Node *subroot);
     int findMin();
@@ -119,7 +119,7 @@ Node *BST::insertHelp(Node *subroot, int data)
 
 bool BST::remove(int data)
 {
-    if (!isExist(data))
+    if (!contains(data))
         return false;
     removeHelp(root, data);
     return true;
@@ -173,7 +173,7 @@ Node *BST::find(int data)
     return nullptr;
 }
 
-bool BST::isExist(int data)
+bool BST::contains(int data)
 {
     Node *temp = root;
     while (temp != nullptr)

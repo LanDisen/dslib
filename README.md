@@ -8,7 +8,7 @@
 - [x] Stack
 - [x] Queue
 - [ ] Array
-- [ ] BST(using int type but not template)
+- [x] BST(using int type but not template)
 - [ ] MaxHeap
 - [ ] MinHeap
 - [ ] TwoThreeTree
