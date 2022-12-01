@@ -1,9 +1,9 @@
 # dslib
 **dslib** is a data structures library using C++.
 
-## TODO
+## TODOs
 - [ ] List
-- [ ] LinkedList
+- [x] LinkedList
 - [ ] Vector
 - [x] Stack
 - [x] Queue

@@ -1,7 +1,8 @@
 #include <iostream>
 #include "Stack.h"
 #include "Queue.h"
-#include "BST.h"
+//#include "BST.h"
+#include "LinkedList.h"
 using namespace std;
 
 template<typename T>
@@ -49,31 +50,55 @@ void testQueue()
     cout << q.isEmpty() << endl;
 }
 
-void testBST()
+// void testBST()
+// {
+//     BST tree;
+//     tree.insert(5);
+//     tree.insert(2);
+//     tree.insert(8);
+//     tree.insert(3);
+//     tree.insert(9);
+//     tree.insert(10);
+//     tree.insert(6);
+//     tree.preorder();
+//     // tree.inorder();
+//     // tree.postorder();
+//     tree.remove(2);
+//     tree.preorder();
+//     tree.remove(5);
+//     tree.preorder();
+//     tree.remove(8);
+//     tree.preorder();
+// }
+
+void testLinkedList()
 {
-    BST tree;
-    tree.insert(5);
-    tree.insert(2);
-    tree.insert(8);
-    tree.insert(3);
-    tree.insert(9);
-    tree.insert(10);
-    tree.insert(6);
-    tree.preorder();
-    // tree.inorder();
-    // tree.postorder();
-    tree.remove(2);
-    tree.preorder();
-    tree.remove(5);
-    tree.preorder();
-    tree.remove(8);
-    tree.preorder();
+    LinkedList ll;
+    ll.insert(3);
+    ll.insert(5);
+    ll.insert(8);
+    ll.insert(2);
+    ll.insert(6);
+    ll.insert(1);
+    ll.insert(9);
+    cout << ll.toString() << endl;
+    cout << ll.getSize() << endl;
+    cout << ll.contains(3) << endl;
+    cout << ll.contains(10) << endl;
+    cout << ll.remove(10) << endl;
+    cout << ll.remove(3) << endl;
+    cout << ll.toString() << endl;
+    cout << ll.remove(1) << endl;
+    cout << ll.remove(9) << endl;
+    cout << ll.toString() << endl;
 }
 
 int main() 
 {
     //testStack();
     //testQueue();
-    testBST();
+    //testBST();
+    testLinkedList();
+    cout << "end test" << endl;
     return 0;
 }
