@@ -4,7 +4,7 @@
 ## TODOs
 - [x] List
 - [x] LinkedList
-- [ ] Vector
+- [x] Vector
 - [x] Stack
 - [x] Queue
 - [ ] Array
@@ -14,4 +14,4 @@
 - [ ] TwoThreeTree
 - [ ] BPlusTree
 - [ ] HashMap
-- [ ] Algorithm
+- [x] Algorithm
