@@ -5,6 +5,7 @@
 #include "LinkedList.h"
 #include "Algorithm.h"
 #include "List.h"
+#include "Array.h"
 using namespace std;
 
 template<typename T>
@@ -19,38 +20,38 @@ void println(T t)
     cout << t << endl;
 }
 
-void testStack()
-{
-    Stack<int> s;
-    s.push(10);
-    s.push(20);
-    s.push(30);
-    cout << s.top() << endl;
-    s.pop();
-    cout << s.top() << endl;
-    s.pop();
-    cout << s.isEmpty() << endl;
-    cout << s.top() << endl;
-    s.pop();
-    cout << s.isEmpty() << endl;
-}
+// void testStack()
+// {
+//     Stack<int> s;
+//     s.push(10);
+//     s.push(20);
+//     s.push(30);
+//     cout << s.top() << endl;
+//     s.pop();
+//     cout << s.top() << endl;
+//     s.pop();
+//     cout << s.isEmpty() << endl;
+//     cout << s.top() << endl;
+//     s.pop();
+//     cout << s.isEmpty() << endl;
+// }
 
-void testQueue()
-{
-    Queue<int> q;
-    q.enqueue(10);
-    q.enqueue(20);
-    q.enqueue(30);
-    cout << q.front() << endl;
-    cout << q.rear() << endl;
-    q.dequeue();
-    cout << q.front() << endl;
-    q.enqueue(40);
-    cout << q.rear() << endl;
-    cout << q.isEmpty() << endl;
-    q.clear();
-    cout << q.isEmpty() << endl;
-}
+// void testQueue()
+// {
+//     Queue<int> q;
+//     q.enqueue(10);
+//     q.enqueue(20);
+//     q.enqueue(30);
+//     cout << q.front() << endl;
+//     cout << q.rear() << endl;
+//     q.dequeue();
+//     cout << q.front() << endl;
+//     q.enqueue(40);
+//     cout << q.rear() << endl;
+//     cout << q.isEmpty() << endl;
+//     q.clear();
+//     cout << q.isEmpty() << endl;
+// }
 
 // void testBST()
 // {
@@ -139,14 +140,31 @@ void testList()
     cout << endl;
 }
 
+void testArray()
+{
+    Array<int> a;
+    for (int i=0; i<10; i++)
+        a.set(i, i);
+    for (int i=0; i<10; i++)
+    {
+        cout << a.get(i) << " ";
+    }
+    cout << endl;
+    a.set(200, 200);
+    cout << a.get(200) << endl;
+    //cout << a.size << endl;
+}
+
 int main() 
 {
+    cout << "<Test Start>" << endl;
     //testStack();
     //testQueue();
     //testBST();
     //testLinkedList();
     //testAlgorithm();
-    testList();
-    cout << "end test" << endl;
+    //testList();
+    testArray();
+    cout << "<Test End>" << endl;
     return 0;
 }

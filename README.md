@@ -5,10 +5,10 @@
 - [x] List
 - [x] LinkedList
 - [x] Vector
-- [x] Stack
-- [x] Queue
-- [ ] Array
-- [x] BST(using int type but not template)
+- [x] Stack (maybe it can use **List** storing data)
+- [x] Queue (the same as Stack)
+- [x] Array
+- [x] BST (using int type but not template)
 - [ ] MaxHeap
 - [ ] MinHeap
 - [ ] TwoThreeTree
