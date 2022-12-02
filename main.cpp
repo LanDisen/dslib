@@ -4,6 +4,7 @@
 //#include "BST.h"
 #include "LinkedList.h"
 #include "Algorithm.h"
+#include "List.h"
 using namespace std;
 
 template<typename T>
@@ -99,7 +100,7 @@ void testAlgorithm()
     int arr[10] = {2,5,1,8,6,4,3,7,9,0};
     int size = 10;
     for (int i=0; i<size; i++)
-    {
+    {              
         cout << arr[i] << " ";
     }
     cout << endl;
@@ -111,13 +112,41 @@ void testAlgorithm()
     cout << endl;
 }
 
+void testList()
+{
+    List<int> l;
+    l.add(1);
+    l.add(2);
+    l.add(3);
+    l.add(4);
+    l.add(5);
+    for (int i=0; i<l.size; i++) cout << l.array[i] << ' ';
+    cout << endl;
+    l.add(10,3);
+    l.remove(0);
+    for (int i=0; i<l.size; i++) cout << l.array[i] << ' ';
+    cout << endl;
+    l.add(6);
+    l.add(7,6);
+    l.add(8,6);
+    for (int i=0; i<l.size; i++) cout << l.get(i) << ' ';
+    cout << endl;
+    cout << l.getSize() << endl;
+    l.clear();
+    cout << l.getSize() << endl;
+    cout << l.isEmpty() << endl;
+    for (int i=0; i<l.size; i++) cout << l.get(i) << ' ';
+    cout << endl;
+}
+
 int main() 
 {
     //testStack();
     //testQueue();
     //testBST();
     //testLinkedList();
-    testAlgorithm();
+    //testAlgorithm();
+    testList();
     cout << "end test" << endl;
     return 0;
 }

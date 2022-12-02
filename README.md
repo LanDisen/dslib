@@ -2,7 +2,7 @@
 **dslib** is a data structures library using C++.
 
 ## TODOs
-- [ ] List
+- [x] List
 - [x] LinkedList
 - [ ] Vector
 - [x] Stack
