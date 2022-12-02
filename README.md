@@ -14,4 +14,4 @@
 - [ ] TwoThreeTree
 - [ ] BPlusTree
 - [ ] HashMap
-- [ ] algorithm
+- [ ] Algorithm

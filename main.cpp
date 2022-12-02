@@ -3,6 +3,7 @@
 #include "Queue.h"
 //#include "BST.h"
 #include "LinkedList.h"
+#include "Algorithm.h"
 using namespace std;
 
 template<typename T>
@@ -93,12 +94,30 @@ void testLinkedList()
     cout << ll.toString() << endl;
 }
 
+void testAlgorithm()
+{
+    int arr[10] = {2,5,1,8,6,4,3,7,9,0};
+    int size = 10;
+    for (int i=0; i<size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    sort(arr, 2, 5);
+    for (int i=0; i<size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 int main() 
 {
     //testStack();
     //testQueue();
     //testBST();
-    testLinkedList();
+    //testLinkedList();
+    testAlgorithm();
     cout << "end test" << endl;
     return 0;
 }
