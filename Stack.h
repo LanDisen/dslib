@@ -1,36 +1,29 @@
-template<class T>
-class Stack
-{
+template <class T>
+class Stack {
 public:
-    void push(T e)
-    {
+    void push(T e) {
         array[size++] = e;
     }
 
-    void pop()
-    {
+    void pop() {
         size--;
     }
 
-    T top()
-    {
-        return array[size-1];
+    T top() {
+        return array[size - 1];
     }
 
-    bool isEmpty()
-    {
+    bool isEmpty() {
         if (size <= 0)
             return true;
         return false;
     }
 
-    int getSize()
-    {
+    int getSize() {
         return size;
     }
 
-    void clear()
-    {
+    void clear() {
         size = 0;
     }
 

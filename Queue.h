@@ -1,43 +1,35 @@
-template<class T>
-class Queue
-{
+template <class T>
+class Queue {
 public:
-    void enqueue(T e)
-    {
+    void enqueue(T e) {
         size++;
         array[++rearPos] = e;
     }
 
-    void dequeue()
-    {
+    void dequeue() {
         size--;
         frontPos++;
     }
 
-    T front()
-    {
+    T front() {
         return array[frontPos];
     }
 
-    T rear()
-    {
+    T rear() {
         return array[rearPos];
     }
 
-    bool isEmpty()
-    {
+    bool isEmpty() {
         if (size <= 0)
             return true;
         return false;
     }
 
-    int getSize()
-    {
+    int getSize() {
         return size;
     }
 
-    void clear()
-    {
+    void clear() {
         size = 0;
         frontPos = 0;
         rearPos = -1;
