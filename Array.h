@@ -9,7 +9,7 @@ public:
     Array(E *a, int size);
     ~Array();
     void set(E e, int index);
-    E& get(int index);
+    E get(int index);
     void resize(int size);
     E& operator[](int index);
 
@@ -54,7 +54,7 @@ void Array<E>::set(E e, int index) {
 }
 
 template <class E>
-E& Array<E>::get(int index) {
+E Array<E>::get(int index) {
     return arr[index];
 }
 
@@ -75,7 +75,7 @@ void Array<E>::resize(int size) {
 
 template <class E>
 E& Array<E>::operator[](int index) {
-    return get(index);
+    return arr[index];
 }
 
 #endif

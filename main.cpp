@@ -157,6 +157,8 @@ void testArray() {
         cout << a2[0][i] << " ";
     }
     cout << endl;
+    a2[0][0] = 10;
+    cout << a2[0][0] << endl;
 }
 
 int main() {
