@@ -1,3 +1,6 @@
+#ifndef _STACK_H_
+#define _STACK_H_
+
 template <class T>
 class Stack {
 public:
@@ -31,3 +34,5 @@ private:
     T array[100];
     int size = 0;
 };
+
+#endif

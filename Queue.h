@@ -1,3 +1,6 @@
+#ifndef _QUEUE_H_
+#define _QUEUE_H_
+
 template <class T>
 class Queue {
 public:
@@ -41,3 +44,5 @@ private:
     int frontPos = 0;
     int rearPos = -1;
 };
+
+#endif
