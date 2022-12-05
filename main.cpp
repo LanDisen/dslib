@@ -1,27 +1,24 @@
 #include <iostream>
-#include "Stack.h"
 #include "Queue.h"
-//#include "BST.h"
-#include "LinkedList.h"
+#include "Stack.h"
+// #include "BST.h"
 #include "Algorithm.h"
-#include "List.h"
 #include "Array.h"
+#include "LinkedList.h"
+#include "List.h"
 using namespace std;
 
-template<typename T>
-void print(T t)
-{
+template <typename T>
+void print(T t) {
     cout << t;
 }
 
-template<typename T>
-void println(T t)
-{
+template <typename T>
+void println(T t) {
     cout << t << endl;
 }
 
-// void testStack()
-// {
+// void testStack() {
 //     Stack<int> s;
 //     s.push(10);
 //     s.push(20);
@@ -36,8 +33,7 @@ void println(T t)
 //     cout << s.isEmpty() << endl;
 // }
 
-// void testQueue()
-// {
+// void testQueue() {
 //     Queue<int> q;
 //     q.enqueue(10);
 //     q.enqueue(20);
@@ -53,8 +49,7 @@ void println(T t)
 //     cout << q.isEmpty() << endl;
 // }
 
-// void testBST()
-// {
+// void testBST() {
 //     BST tree;
 //     tree.insert(5);
 //     tree.insert(2);
@@ -74,8 +69,7 @@ void println(T t)
 //     tree.preorder();
 // }
 
-void testLinkedList()
-{
+void testLinkedList() {
     LinkedList ll;
     ll.insert(3);
     ll.insert(5);
@@ -96,74 +90,71 @@ void testLinkedList()
     cout << ll.toString() << endl;
 }
 
-void testAlgorithm()
-{
-    int arr[10] = {2,5,1,8,6,4,3,7,9,0};
+void testAlgorithm() {
+    int arr[10] = {2, 5, 1, 8, 6, 4, 3, 7, 9, 0};
     int size = 10;
-    for (int i=0; i<size; i++)
-    {              
+    for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
     cout << endl;
     sort(arr, 2, 5);
-    for (int i=0; i<size; i++)
-    {
+    for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
     cout << endl;
 }
 
-void testList()
-{
+void testList() {
     List<int> l;
     l.add(1);
     l.add(2);
     l.add(3);
     l.add(4);
     l.add(5);
-    for (int i=0; i<l.size; i++) cout << l.array[i] << ' ';
+    for (int i = 0; i < l.size; i++)
+        cout << l.array[i] << ' ';
     cout << endl;
-    l.add(10,3);
+    l.add(10, 3);
     l.remove(0);
-    for (int i=0; i<l.size; i++) cout << l.array[i] << ' ';
+    for (int i = 0; i < l.size; i++)
+        cout << l.array[i] << ' ';
     cout << endl;
     l.add(6);
-    l.add(7,6);
-    l.add(8,6);
-    for (int i=0; i<l.size; i++) cout << l.get(i) << ' ';
+    l.add(7, 6);
+    l.add(8, 6);
+    for (int i = 0; i < l.size; i++)
+        cout << l.get(i) << ' ';
     cout << endl;
     cout << l.getSize() << endl;
     l.clear();
     cout << l.getSize() << endl;
     cout << l.isEmpty() << endl;
-    for (int i=0; i<l.size; i++) cout << l.get(i) << ' ';
+    for (int i = 0; i < l.size; i++)
+        cout << l.get(i) << ' ';
     cout << endl;
 }
 
-void testArray()
-{
+void testArray() {
     Array<int> a;
-    for (int i=0; i<10; i++)
+    for (int i = 0; i < 10; i++)
         a.set(i, i);
-    for (int i=0; i<10; i++)
-    {
+    for (int i = 0; i < 10; i++) {
         cout << a.get(i) << " ";
     }
     cout << endl;
     a.set(200, 200);
     cout << a.get(200) << endl;
-    //cout << a.size << endl;
+    // cout << a.size << endl;
 }
 
-int main() 
-{
+int main() {
     cout << "<Test Start>" << endl;
-    //testStack();
-    //testQueue();
-    //testBST();
-    //testLinkedList();
-    //testAlgorithm();
-    //testList();
+    // testStack();
+    // testQueue();
+    // testBST();
+    // testLinkedList();
+    // testAlgorithm();
+    // testList();
     testArray();
     cout << "<Test End>" << endl;
     return 0;
