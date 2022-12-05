@@ -6,6 +6,7 @@
 #include "Array.h"
 #include "LinkedList.h"
 #include "List.h"
+#include "Grath.h"
 using namespace std;
 
 template <typename T>
@@ -161,6 +162,18 @@ void testArray() {
     cout << a2[0][0] << endl;
 }
 
+void testGraph() {
+    Graph g(6, 0);
+    g.setPath(0, 1, 1);
+    g.setPath(0, 2, 1);
+    g.setPath(0, 3, 1);
+    g.setPath(1, 2, 1);
+    g.setPath(1, 4, 1);
+    g.setPath(2, 5, 1);
+    g.setPath(3, 5, 1);
+    g.bfs(0);
+}
+
 int main() {
     cout << "<Test Start>" << endl;
     // testStack();
@@ -169,7 +182,8 @@ int main() {
     // testLinkedList();
     // testAlgorithm();
     // testList();
-    testArray();
+    // testArray();
+    testGraph();
     cout << "<Test End>" << endl;
     return 0;
 }

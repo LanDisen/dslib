@@ -12,6 +12,7 @@ public:
     E get(int index);
     void resize(int size);
     E& operator[](int index);
+    Array<E>& operator=(const Array<E>& array);
 
 public:
     E* arr;
@@ -76,6 +77,13 @@ void Array<E>::resize(int size) {
 template <class E>
 E& Array<E>::operator[](int index) {
     return arr[index];
+}
+
+template <class E>
+Array<E>& Array<E>::operator=(const Array<E>& array) {
+    this->arr = array.arr;
+    this->size = array.size;
+    return *this;
 }
 
 #endif
