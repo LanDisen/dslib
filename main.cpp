@@ -135,16 +135,28 @@ void testList() {
 }
 
 void testArray() {
-    Array<int> a;
-    for (int i = 0; i < 10; i++)
-        a.set(i, i);
-    for (int i = 0; i < 10; i++) {
-        cout << a.get(i) << " ";
+    // Array<int> a;
+    // for (int i = 0; i < 10; i++)
+    //     a.set(i, i);
+    // for (int i = 0; i < 10; i++) {
+    //     cout << a.get(i) << " ";
+    // }
+    // cout << endl;
+    // a.set(200, 200);
+    // cout << a.get(200) << endl;
+    // cout << a.size << endl;
+    int a[] = {0,1,2,3,4};
+    Array<int> a1(a, 5);
+    for (int i = 0; i < 5; i++) {
+        cout << a1[i] << " ";
     }
     cout << endl;
-    a.set(200, 200);
-    cout << a.get(200) << endl;
-    // cout << a.size << endl;
+    Array<Array<int>> a2(5);
+    a2[0] = a1;
+    for (int i = 0; i < 3; i++) {
+        cout << a2[0][i] << " ";
+    }
+    cout << endl;
 }
 
 int main() {

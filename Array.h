@@ -6,10 +6,12 @@ class Array {
 public:
     Array();
     Array(int size);
+    Array(E *a, int size);
     ~Array();
     void set(E e, int index);
-    E get(int index);
+    E& get(int index);
     void resize(int size);
+    E& operator[](int index);
 
 public:
     E* arr;
@@ -20,6 +22,15 @@ template <class E>
 Array<E>::Array() {
     arr = new E[100];
     size = 100;
+}
+
+template <class E>
+Array<E>::Array(E *a, int size) {
+    this->size = size;
+    arr = new E[size];
+    for (int i=0; i<size; i++) {
+        arr[i] = a[i];
+    }
 }
 
 template <class E>
@@ -43,7 +54,7 @@ void Array<E>::set(E e, int index) {
 }
 
 template <class E>
-E Array<E>::get(int index) {
+E& Array<E>::get(int index) {
     return arr[index];
 }
 
@@ -60,6 +71,11 @@ void Array<E>::resize(int size) {
     arr = newarr;
     delete temp;
     temp = nullptr;
+}
+
+template <class E>
+E& Array<E>::operator[](int index) {
+    return get(index);
 }
 
 #endif
