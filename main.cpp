@@ -6,7 +6,8 @@
 #include "Array.h"
 #include "LinkedList.h"
 #include "List.h"
-#include "Grath.h"
+#include "Graph.h"
+#include "MinHeap.h"
 using namespace std;
 
 template <typename T>
@@ -174,6 +175,22 @@ void testGraph() {
     g.bfs(0);
 }
 
+void testMinHeap() {
+    MinHeap mh(100);
+    mh.push(10);
+    mh.push(20);
+    mh.push(30);
+    mh.push(40);
+    mh.push(25);
+    mh.push(22);
+    mh.push(35);
+    mh.pop();
+    for (int i=1; i<=mh.size; i++) {
+        cout << mh.array[i] << " ";
+    }
+    cout << endl;
+}
+
 int main() {
     cout << "<Test Start>" << endl;
     // testStack();
@@ -183,7 +200,8 @@ int main() {
     // testAlgorithm();
     // testList();
     // testArray();
-    testGraph();
+    // testGraph();
+    testMinHeap();
     cout << "<Test End>" << endl;
     return 0;
 }

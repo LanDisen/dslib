@@ -10,9 +10,10 @@
 - [x] Array (you don't need to declare the array size)
 - [x] BST (using int type but not template)
 - [ ] MaxHeap
-- [ ] MinHeap
+- [x] MinHeap
 - [ ] TwoThreeTree
 - [ ] BPlusTree
 - [ ] Graph
+- [ ] AdjList (based on LinkedList)
 - [ ] HashMap
 - [x] Algorithm
