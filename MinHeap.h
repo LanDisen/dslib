@@ -41,8 +41,10 @@ public:
             int j;
             if (array[i*2] < array[i*2+1]) {
                 j = i * 2;
-            } else {
+            } else if (array[i*2] > array[i*2+1] && (i*2+1<=size)) {
                 j = i * 2 + 1;
+            } else {
+                j = i * 2;
             }
             if (array[i] > array[j]) {
                 int t = array[i];

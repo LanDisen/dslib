@@ -5,7 +5,7 @@ class MaxHeap {
 public:
     MaxHeap(int n) {
         array = new int[n];
-        array[0] = -2147483628;
+        array[0] = 2147483627;
         size = 0;
     }
 
@@ -41,8 +41,10 @@ public:
             int j;
             if (array[i*2] > array[i*2+1]) {
                 j = i * 2;
-            } else {
+            } else if (array[i*2] < array[i*2+1] && (i*2+1<=size)) {
                 j = i * 2 + 1;
+            } else {
+                j = i * 2;
             }
             if (array[i] < array[j]) {
                 int t = array[i];
