@@ -9,7 +9,7 @@
 - [x] Queue (the same as Stack)
 - [x] Array (you don't need to declare the array size)
 - [x] BST (using int type but not template)
-- [ ] MaxHeap
+- [x] MaxHeap
 - [x] MinHeap
 - [ ] TwoThreeTree
 - [ ] BPlusTree
